@@ -9,6 +9,7 @@ public class Board {
     public void setupPosition(String fen) {
         setupPosition(fen, false);
     }
+
     public void setupPosition(String fen, boolean debug) {
         int idx = 64;
         for (Character c : fen.toCharArray()) {
