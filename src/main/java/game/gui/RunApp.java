@@ -4,12 +4,15 @@ import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class RunApp extends Application {
 
@@ -46,26 +49,50 @@ public class RunApp extends Application {
             GridPane.setValignment(num, VPos.CENTER);
         }
 
-        Scene scene = new Scene(grid);
-
         // Create 64 rectangles and add to grid
         int count = 0;
-        double s = 75;
+        double tileSize = 75;
         for (int i = 0; i < 8; i++) {
             count++;
             for (int j = 0; j < 8; j++) {
-                Rectangle rect = new Rectangle(s, s, s, s);
+                Rectangle rect = new Rectangle(tileSize, tileSize, tileSize, tileSize);
                 if (count % 2 == 1) {
                     rect.setFill(WH);
                 }
                 else {
                     rect.setFill(BL);
                 }
+                grid.add(new DragableImageView(), j, i);
                 grid.add(rect, j, i);
                 count++;
             }
         }
 
+        // Load Images
+        ArrayList<DragableImageView> views = new ArrayList<>();
+        ArrayList<Image> images = new ArrayList<>();
+
+        String path = "C:\\Users\\Jasper Koehn\\Desktop\\Coding\\Java\\Chess\\src\\main\\resources\\";
+        DragableImageView wKing = new DragableImageView();
+        Image wK = new Image(path + "WKing.png");
+        views.add(wKing);
+        images.add(wK);
+
+        DragableImageView bKing = new DragableImageView();
+        Image bK = new Image(path + "BKing.png");
+        views.add(bKing);
+        images.add(bK);
+
+        for (int i = 0; i < views.size(); i++) {
+            DragableImageView v = views.get(i);
+            Image im = images.get(i);
+            v.setImage(im);
+            v.setFitHeight(tileSize);
+            v.setFitWidth(tileSize);
+            grid.add(v,i,0);  // TODO indexing of each piece - connect to board
+        }
+
+        Scene scene = new Scene(grid);
         stage.setTitle("Java Chess");
         stage.setScene(scene);
         stage.show();
