@@ -19,5 +19,9 @@ public abstract class Piece {
 
     public abstract String toString();
 
+    public PieceEnum getName() {
+        return this.name;
+    }
+
     // abstract Move[] calculateLegalMoves(Board board);
 }

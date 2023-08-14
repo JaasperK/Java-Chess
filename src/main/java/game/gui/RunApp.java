@@ -98,7 +98,7 @@ public class RunApp extends Application {
         for (int rank = 0; rank < 8; rank++) {
             for (int file = 0; file < 8; file++) {
                 Piece p = field.getBoard()[rank][file];
-                switch (p.) {
+                switch (p.getName()) {
                     case
                 }
             }
