@@ -37,12 +37,12 @@ public class RunApp extends Application {
             count++;
             for (int j = 0; j < 8; j++) {
                 Rectangle rect = new Rectangle(tileSize, tileSize, tileSize, tileSize);
-                if (count % 2 == 1) {
+
+                if (count % 2 == 1)
                     rect.setFill(WH);
-                }
-                else {
+                else
                     rect.setFill(BL);
-                }
+
                 grid.add(new DragableImageView(), j, i);
                 grid.add(rect, j, i);
                 count++;
