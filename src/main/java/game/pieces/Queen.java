@@ -7,6 +7,7 @@ public class Queen extends Piece {
 
     public Queen(int playerColor) {
         this.playerColor = playerColor;
+        name = PieceEnum.QUEEN;
         movesDiagonally = true;
         movesStraight = true;
     }

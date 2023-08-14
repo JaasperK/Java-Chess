@@ -10,7 +10,7 @@ public class Board {
         setupPosition(fen, false);
     }
 
-    public void setupPosition(String fen, boolean debug) {
+    private void setupPosition(String fen, boolean debug) {
         int rank = 8;
         int file = 8;
         for (Character c : fen.toCharArray()) {
@@ -76,6 +76,14 @@ public class Board {
                 }
             }
         }
+    }
+
+    public void setupStartPosition() {
+        this.setupPosition(startPosition);
+    }
+
+    public Piece[][] getBoard() {
+        return this.board;
     }
 
     public static void main(String[] args) {

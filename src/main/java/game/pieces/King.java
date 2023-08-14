@@ -7,6 +7,7 @@ public class King extends Piece {
 
     public King(int playerColor) {
         this.playerColor = playerColor;
+        name = PieceEnum.KING;
     }
 
     @Override

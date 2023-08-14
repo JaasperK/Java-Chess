@@ -7,6 +7,7 @@ public class Knight extends Piece {
 
     public Knight(int playerColor) {
         this.playerColor = playerColor;
+        name = PieceEnum.KNIGHT;
     }
 
     @Override

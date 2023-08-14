@@ -7,6 +7,7 @@ public class Rook extends Piece {
 
     public Rook(int playerColor) {
         this.playerColor = playerColor;
+        name = PieceEnum.ROOK;
         movesStraight = true;
     }
 

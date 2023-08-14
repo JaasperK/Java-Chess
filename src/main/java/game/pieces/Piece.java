@@ -7,6 +7,7 @@ public abstract class Piece {
     int playerColor = -1;
     boolean movesDiagonally = false;
     boolean movesStraight = false;
+    PieceEnum name;
 
     boolean isWhite() {
         return this.playerColor == 1;

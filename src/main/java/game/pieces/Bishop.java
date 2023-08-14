@@ -7,6 +7,7 @@ public class Bishop extends Piece {
 
     public Bishop(int playerColor) {
         this.playerColor = playerColor;
+        name = PieceEnum.BISHOP;
         movesDiagonally = true;
     }
 

@@ -8,6 +8,7 @@ public class Pawn extends Piece {
 
     public Pawn(int playerColor) {
         this.playerColor = playerColor;
+        name = PieceEnum.PAWN;
     }
 
     @Override

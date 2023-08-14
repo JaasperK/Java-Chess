@@ -1,18 +1,18 @@
 package game.gui;
 
+import game.board.Board;
+import game.pieces.Piece;
+
 import javafx.application.Application;
 import javafx.geometry.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class RunApp extends Application {
 
@@ -69,30 +69,44 @@ public class RunApp extends Application {
         }
 
         // Load Images
-        ArrayList<DragableImageView> views = new ArrayList<>();
-        ArrayList<Image> images = new ArrayList<>();
+//        ArrayList<DragableImageView> views = new ArrayList<>();
+//        ArrayList<Image> images = new ArrayList<>();
+//
+//        String path = "C:\\Users\\Jasper Koehn\\Desktop\\Coding\\Java\\Chess\\src\\main\\resources\\";
+//        DragableImageView wKing = new DragableImageView();
+//        Image wK = new Image(path + "WKing.png");
+//        views.add(wKing);
+//        images.add(wK);
+//
+//        DragableImageView bKing = new DragableImageView();
+//        Image bK = new Image(path + "BKing.png");
+//        views.add(bKing);
+//        images.add(bK);
+//
+//        for (int i = 0; i < views.size(); i++) {
+//            DragableImageView v = views.get(i);
+//            Image im = images.get(i);
+//            v.setImage(im);
+//            v.setFitHeight(tileSize);
+//            v.setFitWidth(tileSize);
+//            grid.add(v,i,0);  // TODO indexing of each piece - connect to board
+//        }
 
-        String path = "C:\\Users\\Jasper Koehn\\Desktop\\Coding\\Java\\Chess\\src\\main\\resources\\";
-        DragableImageView wKing = new DragableImageView();
-        Image wK = new Image(path + "WKing.png");
-        views.add(wKing);
-        images.add(wK);
+        Board field = new Board();
+        field.setupStartPosition();
 
-        DragableImageView bKing = new DragableImageView();
-        Image bK = new Image(path + "BKing.png");
-        views.add(bKing);
-        images.add(bK);
-
-        for (int i = 0; i < views.size(); i++) {
-            DragableImageView v = views.get(i);
-            Image im = images.get(i);
-            v.setImage(im);
-            v.setFitHeight(tileSize);
-            v.setFitWidth(tileSize);
-            grid.add(v,i,0);  // TODO indexing of each piece - connect to board
+        for (int rank = 0; rank < 8; rank++) {
+            for (int file = 0; file < 8; file++) {
+                Piece p = field.getBoard()[rank][file];
+                switch (p.) {
+                    case
+                }
+            }
         }
 
-        Scene scene = new Scene(grid);
+
+
+        Scene scene = new Scene(grid, tileSize*8 + 50, tileSize*8 + 50);
         stage.setTitle("Java Chess");
         stage.setScene(scene);
         stage.show();
