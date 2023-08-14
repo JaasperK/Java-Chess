@@ -11,63 +11,63 @@ public class Board {
     }
 
     private void setupPosition(String fen, boolean debug) {
-        int rank = 8;
-        int file = 8;
+        int rank = 0;
+        int file = -1;
         for (Character c : fen.toCharArray()) {
             char match = Character.toLowerCase(c);
             switch (match) {
                 case 'r' -> {
-                    file -= 1;
+                    file += 1;
                     if (debug) {
                         System.out.print(c);
                     }
-                    board[rank-1][file] = Character.isLowerCase(c) ? new Rook(0) : new Rook(1);
+                    board[rank][file] = Character.isLowerCase(c) ? new Rook(0) : new Rook(1);
                 }
                 case 'n' -> {
-                    file -= 1;
+                    file += 1;
                     if (debug) {
                         System.out.print(c);
                     }
-                    board[rank-1][file] = Character.isLowerCase(c) ? new Knight(0) : new Knight(1);
+                    board[rank][file] = Character.isLowerCase(c) ? new Knight(0) : new Knight(1);
                 }
                 case 'b' -> {
-                    file -= 1;
+                    file += 1;
                     if (debug) {
                         System.out.print(c);
                     }
-                    board[rank-1][file] = Character.isLowerCase(c) ? new Bishop(0) : new Bishop(1);
+                    board[rank][file] = Character.isLowerCase(c) ? new Bishop(0) : new Bishop(1);
                 }
                 case 'q' -> {
-                    file -= 1;
+                    file += 1;
                     if (debug) {
                         System.out.print(c);
                     }
-                    board[rank-1][file] = Character.isLowerCase(c) ? new Queen(0) : new Queen(1);
+                    board[rank][file] = Character.isLowerCase(c) ? new Queen(0) : new Queen(1);
                 }
                 case 'k' -> {
-                    file -= 1;
+                    file += 1;
                     if (debug) {
                         System.out.print(c);
                     }
-                    board[rank-1][file] = Character.isLowerCase(c) ? new King(0) : new King(1);
+                    board[rank][file] = Character.isLowerCase(c) ? new King(0) : new King(1);
                 }
                 case 'p' -> {
-                    file -= 1;
+                    file += 1;
                     if (debug) {
                         System.out.print(c);
                     }
-                    board[rank-1][file] = Character.isLowerCase(c) ? new Pawn(0) : new Pawn(1);
+                    board[rank][file] = Character.isLowerCase(c) ? new Pawn(0) : new Pawn(1);
                 }
                 case '/' -> {
                     if (debug) {
-                        System.out.println();
+                        System.out.println(c);
                     }
-                    rank -= 1;
-                    file = 8;
+                    rank += 1;
+                    file = -1;
                 }
                 default -> {
                     int num = Character.getNumericValue(c);
-                    file -= num;
+                    file += num;
                     if (debug) {
                         for (int i = 0; i < num; i++) {
                             System.out.print("|");

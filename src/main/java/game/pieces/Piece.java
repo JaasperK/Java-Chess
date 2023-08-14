@@ -9,11 +9,11 @@ public abstract class Piece {
     boolean movesStraight = false;
     PieceEnum name;
 
-    boolean isWhite() {
+    public boolean isWhite() {
         return this.playerColor == 1;
     }
 
-    boolean isBlack() {
+    public boolean isBlack() {
         return this.playerColor == 0;
     }
 
@@ -21,6 +21,14 @@ public abstract class Piece {
 
     public PieceEnum getName() {
         return this.name;
+    }
+
+    public boolean getMovesDiagonally() {
+        return movesDiagonally;
+    }
+
+    public boolean getMovesStraight() {
+        return movesStraight;
     }
 
     // abstract Move[] calculateLegalMoves(Board board);

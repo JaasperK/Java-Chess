@@ -33,4 +33,17 @@ public class DragableImageView extends ImageView {
             e.consume();
         });
     }
+
+    public String toString() {
+        return getImage().getUrl().replace("C:\\Users\\Jasper Koehn\\Desktop\\Coding\\Java\\Chess\\src\\main\\resources\\", "");
+    }
+
+    public DragableImageView copy() {
+        DragableImageView copiedImageView = new DragableImageView();
+        copiedImageView.setImage(this.getImage());
+        copiedImageView.setFitWidth(this.getFitWidth());
+        copiedImageView.setFitHeight(this.getFitHeight());
+        copiedImageView.setPreserveRatio(this.isPreserveRatio());
+        return copiedImageView;
+    }
 }
